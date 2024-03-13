@@ -41,7 +41,7 @@ public class LL {
         size ++;
     }
 
-//    the method below is used to insert a value at any position in  the linked list
+//    the method below is used to insert a value at a before position after the mentioned pos in  the linked list
     void insert (int val, int pos){
         if (pos == 0) {
             insertFirst(val);
@@ -57,6 +57,10 @@ public class LL {
         while ((temp != null) && ((pos - 1) != count)){
             count ++;
             temp = temp.next;
+        }
+        if (temp == null){
+            System.out.println("Position mentioned is out of bounds");
+            return;
         }
         node.next = temp.next;
         temp.next = node;
@@ -104,6 +108,10 @@ public class LL {
         while ((temp !=null) && ((pos - 1) != count)) {
             temp = temp.next;
             count ++;
+        }
+        if (temp == null){
+            System.out.println("Position mentioned is out of bounds");
+            return -1;
         }
         int val = temp.next.value;
         temp.next= temp.next.next;
